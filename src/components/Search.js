@@ -2,6 +2,8 @@ import {React, useState} from 'react'
 
 import ExitButton from './ExitButton'
 import SearchBar from './SearchBar'
+import AddList from './AddList'
+
 import SearchResult from './SearchResult'
 export default function Search(props){
 
@@ -27,6 +29,7 @@ export default function Search(props){
                 <SearchBar displayResults = {displayResults} setResult = {setResults} string = {searchString} setString = {setSearchString}/>
                 <ExitButton setString = {setSearchString} setSearching = {props.setSearching}/>
                 {displayResults(results)}
+                <AddList/>
             </div>
         )
     }
