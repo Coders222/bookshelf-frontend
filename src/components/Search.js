@@ -9,10 +9,11 @@ export default function Search(props){
 
     const [searchString, setSearchString] = useState('')
     const [results, setResults] = useState(false)
+    const [showResults, setShowResults] = useState(false)
     console.log(results)
 
     function displayResults(results){
-        if (results){
+        if (showResults){
             
             for (let i = 0; i < 5; i++){
                 let params = {}
@@ -26,7 +27,7 @@ export default function Search(props){
     if (props.searching){
         return (
             <div class = 'mt-4 w-1/2 bg-red-500 mx-auto'>
-                <SearchBar displayResults = {displayResults} setResult = {setResults} string = {searchString} setString = {setSearchString}/>
+                <SearchBar setShowResults = {setShowResults} setResults = {setResults} string = {searchString} setString = {setSearchString}/>
                 <ExitButton setString = {setSearchString} setSearching = {props.setSearching}/>
                 {displayResults(results)}
                 <AddList/>

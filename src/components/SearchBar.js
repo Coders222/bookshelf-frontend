@@ -3,13 +3,12 @@ import request from "./fetch"
 
 export default function SearchBar(props){
 
-    function setData(callback) {
-        props.setResult(props.string)
-        callback()
-    }
     async function search(callback){
-        request('/search.json?title=', 'get', {search: props.string})
-        callback()
+        await request('/search.json?title=', 'get', {search: props.string}).then((res) => {
+            setTimeout(props.setResults(res), 2000)
+            props.setShowResults(true);
+        })
+       
     }
     return (
         <div class="flex items-center justify-center p-5">
@@ -20,7 +19,7 @@ export default function SearchBar(props){
                     </svg>
                 </div>
                 <input type="text" value = {props.string} onChange = {(e) => props.setString(e.target.value)} class="w-full max-w-[160px] bg-white pl-2 text-base font-semibold outline-0" placeholder="Lebron" id=""/>
-                <input type="button" value="Search" onClick = {() => search(() => setData(() => props.displayResults()))} class="bg-blue-500 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-blue-800 transition-colors"/>
+                <input type="button" value="Search" onClick = {() => search()} class="bg-blue-500 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-blue-800 transition-colors"/>
                 </div>
         </div>
     )
