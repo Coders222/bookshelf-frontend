@@ -7,9 +7,41 @@ import Book from './Book'
 export default function Landing(){
 
     const [searching, setSearching] = useState(false)
-    const [books, setBooks] = useState([{
-        "ibsn":"temp"
-    }])
+    const [books, setBooks] = useState([
+        {
+            "ibsn":"temp"
+        },
+        {
+            "ibsn":"temp"
+        },
+        {
+            "ibsn":"temp"
+        },
+        {
+            "ibsn":"temp"
+        },
+        {
+            "ibsn":"temp"
+        },
+        {
+            "ibsn":"temp"
+        },
+        {
+            "ibsn":"temp"
+        },
+        {
+            "ibsn":"temp"
+        },
+        {
+            "ibsn":"temp"
+        },
+        {
+            "ibsn":"temp"
+        },
+        {
+            "ibsn":"temp"
+        }
+    ])
 
     function showSearch(){
         if (searching){
