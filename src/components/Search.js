@@ -26,11 +26,15 @@ export default function Search(props){
 
     if (props.searching){
         return (
-            <div class = 'mt-4 w-1/2 bg-[#363139] mx-auto rounded-md border border-1 border-[#fb9575] border-2'>
-                <SearchBar setShowResults = {setShowResults} setResults = {setResults} string = {searchString} setString = {setSearchString}/>
-                <ExitButton setString = {setSearchString} setSearching = {props.setSearching}/>
-                {displayResults(results)}
-                <AddList/>
+            <div>
+                <div class = 'mt-4 w-1/2 bg-[#363139] mx-auto rounded-md border border-1 border-[#fb9575] border-2'>
+                    <SearchBar setShowResults = {setShowResults} setResults = {setResults} string = {searchString} setString = {setSearchString}/>
+                    {displayResults(results)}
+                    <AddList/>
+                </div>
+                <div class = 'mx-auto mt-3 flex items-center justify-center'>
+                    <ExitButton setString = {setSearchString} setSearching = {props.setSearching}/>
+                </div>
             </div>
         )
     }
