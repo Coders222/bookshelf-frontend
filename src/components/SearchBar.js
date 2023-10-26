@@ -19,7 +19,7 @@ export default function SearchBar(props){
                     </svg>
                 </div>
                 <input type="text" value = {props.string} onChange = {(e) => props.setString(e.target.value)} class="w-full max-w-[160px] bg-white pl-2 text-base font-semibold outline-0" placeholder="Lebron" id=""/>
-                <input type="button" value="Search" onClick = {() => search()} class="bg-blue-500 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-blue-800 transition-colors"/>
+                <input type="button" value="Search" onClick = {() => search()} class="bg-blue-500 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-blue-800 transition-colors cursor-pointer"/>
                 </div>
         </div>
     )
