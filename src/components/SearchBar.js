@@ -8,7 +8,7 @@ export default function SearchBar(props){
             setTimeout(props.setResults(res), 2000)
             props.setShowResults(true);
         })
-       
+
     }
     return (
         <div class="flex items-center justify-center p-5">
