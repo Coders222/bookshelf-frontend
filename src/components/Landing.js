@@ -13,33 +13,6 @@ export default function Landing(){
         },
         {
             "ibsn":"temp"
-        },
-        {
-            "ibsn":"temp"
-        },
-        {
-            "ibsn":"temp"
-        },
-        {
-            "ibsn":"temp"
-        },
-        {
-            "ibsn":"temp"
-        },
-        {
-            "ibsn":"temp"
-        },
-        {
-            "ibsn":"temp"
-        },
-        {
-            "ibsn":"temp"
-        },
-        {
-            "ibsn":"temp"
-        },
-        {
-            "ibsn":"temp"
         }
     ])
 
