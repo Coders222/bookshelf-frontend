@@ -3,9 +3,9 @@ import request from "./fetch"
 
 export default function SearchBar(props){
 
-    async function search(callback){
+    async function search(){
         await request('/search.json?title=', 'get', {search: props.string}).then((res) => {
-            setTimeout(props.setResults(res), 2000)
+            setTimeout(props.setResults(res), 2500)
             props.setShowResults(true);
         })
        

@@ -4,7 +4,8 @@ export default function ExitButton(props){
 
     function exit(){
         props.setSearching(false)
-        props.setResult(false)
+        props.setResults(false)
+        props.setShowResults(false)
         props.setString('')
     }
     return (

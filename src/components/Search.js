@@ -15,20 +15,22 @@ export default function Search(props){
     function displayResults(results){
         if (showResults){
             
+            let out = []
             for (let i = 0; i < 5; i++){
                 let params = {}
                 params.title = results.docs[i].title
                 params.author = results.docs[i].author_name
-                return <SearchResult {...params}/>
+                out.push(<SearchResult {...params}/>)
             }
+            return out
         }
             
     }
     if (props.searching){
         return (
-            <div class = 'mt-4 w-1/2 bg-red-500 mx-auto'>
+            <div class = 'mt-4 w-[40%]  mx-auto'>
                 <SearchBar setShowResults = {setShowResults} setResults = {setResults} string = {searchString} setString = {setSearchString}/>
-                <ExitButton setString = {setSearchString} setSearching = {props.setSearching}/>
+                <ExitButton setResults = {setResults} setString = {setSearchString} setSearching = {props.setSearching} setShowResults = {setShowResults}/>
                 {displayResults(results)}
                 <AddList/>
             </div>
