@@ -1,7 +1,7 @@
 import React from 'react'
 export default function SearchResult(props){
     return (
-        <div class="py-3 sm:py-4 bg-gray-300">
+        <div class="py-3 sm:py-4 bg-gray-300 hover:bg-gray-400">
             <div class="flex items-center space-x-4 px-4">
                 <div class="flex-1 min-w-0">
                     <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
