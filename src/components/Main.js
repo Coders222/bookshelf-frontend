@@ -5,7 +5,7 @@ export default function Main(props){
 
     return (
         <div>
-        <div class = 'w-screen absolute flex flex-col justify-center bottom-0'>
+        <div class = 'w-screen absolute flex flex-col justify-center bottom-0 -z-0'>
             <div class = 'flex justify-center '>
             <div class = 'flex justify-center flex-col'>
                 {props.bookstack}

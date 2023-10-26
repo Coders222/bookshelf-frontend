@@ -31,7 +31,9 @@ export default function Search(props){
             <div class = 'mt-4 w-[40%]  mx-auto'>
                 <SearchBar setShowResults = {setShowResults} setResults = {setResults} string = {searchString} setString = {setSearchString}/>
                 <ExitButton setResults = {setResults} setString = {setSearchString} setSearching = {props.setSearching} setShowResults = {setShowResults}/>
-                {displayResults(results)}
+                
+                    {displayResults(results)}
+                
                 <AddList/>
             </div>
         )
