@@ -26,7 +26,7 @@ export default function Search(props){
 
     if (props.searching){
         return (
-            <div class = 'mt-4 w-1/2 bg-[#EBA487] mx-auto rounded-md'>
+            <div class = 'mt-4 w-1/2 bg-[#4a3e4b] mx-auto rounded-md border border-1 border-[#fb9575]'>
                 <SearchBar setShowResults = {setShowResults} setResults = {setResults} string = {searchString} setString = {setSearchString}/>
                 <ExitButton setString = {setSearchString} setSearching = {props.setSearching}/>
                 {displayResults(results)}
