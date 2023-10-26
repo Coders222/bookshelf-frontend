@@ -1,4 +1,3 @@
-
 import {React, useState} from "react";
 import Main from "./Main"
 import Search from './Search'
@@ -38,8 +37,8 @@ export default function Landing(){
         
     )
     return (
-        <div class='h-screen bg-blue-200'>
-            <h1 class='font-extrabold text-4xl text-center'>
+        <div class='h-screen bg-[#363139]'>
+            <h1 class='font-extrabold text-4xl text-center text-[#fb9575]'>
                 Bookshelf
             </h1>
 

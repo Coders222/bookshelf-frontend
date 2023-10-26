@@ -24,8 +24,8 @@ export default function Search(props){
             }
             return out
         }
-            
     }
+
     if (props.searching){
         return (
             <div class = 'mt-4 w-[40%]  mx-auto'>
@@ -36,5 +36,4 @@ export default function Search(props){
             </div>
         )
     }
-
 }
