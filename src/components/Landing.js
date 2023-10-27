@@ -1,9 +1,11 @@
-import {React, useState} from "react";
+import {React, useEffect, useState} from "react";
 import Main from "./Main"
 import Search from './Search'
 import Book from './Book'
+import request from "./fetch";
 
 export default function Landing(){
+    const backendURL = "http://localhost:5000"
 
     const [searching, setSearching] = useState(false)
     const [books, setBooks] = useState([
@@ -27,6 +29,24 @@ export default function Landing(){
         },
     ])
 
+    useEffect(()=>{
+        
+        try{
+            const authkey = JSON.parse(localStorage.getItem("authkey"))
+                console.log(authkey)
+                request(`${backendURL}/user/getbookshelves`, "post",{authkey: authkey.key, search:""}).then((bookshelves)=>{
+                    console.log(bookshelves)
+                    request(`${backendURL}/bookshelf/getbookshelf`, "post",{authkey: authkey.key,bookshelfid: bookshelves[0],search:""}).then((bookshelf)=>{
+                        console.log(bookshelf)
+                        setBooks(bookshelf.books)
+                    })
+                })
+        
+
+        }catch(err){
+            console.log(err)
+        }
+    },[])
 
     const bookstack = books.map((book) =>{
         if (book.isbn !== "temp"){
@@ -44,7 +64,6 @@ export default function Landing(){
 
             <Main bookstack = {bookstack}/>
             <Search searching = {searching} setSearching = {setSearching}/>
-            
             <button onClick = {() =>setSearching(true)
                                     } type="button" class="absolute text-xl border-1 right-2 md:right-24 2xl:right-52 2xl:text-3xl bottom-3 text-white bg-[#3b5998] hover:bg-[#3b5998]/90 hover:text-blue-200  font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center">
                 Search new book
