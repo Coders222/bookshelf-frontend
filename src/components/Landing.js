@@ -74,9 +74,9 @@ export default function Landing(){
             localStorage.setItem("unsavedbookshelf", JSON.stringify(books));
         }
     }
-    }
+    
 
-    )
+    
     return (
         <div class='h-screen bg-[#363139]'>
             <h1 class='font-extrabold text-4xl text-center text-[#fb9575] cursor-default select-none'>
