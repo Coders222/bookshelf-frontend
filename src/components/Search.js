@@ -34,17 +34,19 @@ export default function Search(props){
     if (props.searching){
         return (
             <>
-                <div class = 'mt-4 w-1/2 bg-[#363139] mx-auto rounded-md border border-1 border-[#fb9575] border-2'>
+                <div class = 'z-999 relative mt-4 w-1/2 bg-[#363139] mx-auto rounded-md border border-1 border-[#fb9575] border-2'>
                     <SearchBar setShowResults = {setShowResults} setResults = {setResults} string = {searchString} setString = {setSearchString}/>
                     
-                    <div class = 'z-10 relative'>
+                    <div class = 'z-999 relative'>
                     
                         {displayResults(results)}
                     </div>
-                    <AddList/>
                 </div>
-                <div class = 'z-10 relative mx-auto mt-3 flex items-center justify-center'>
+                <div class = 'z-999 relative mx-auto mt-3 flex items-center justify-center'>
                     <ExitButton setShowResults = {setShowResults} setResults = {setResults} setString = {setSearchString} setSearching = {props.setSearching}/>
+                </div>
+                <div class = 'z-999 mt-4 w-1/2 bg-[#363139] mx-auto'>
+                    <AddList/>
                 </div>
             </>
 

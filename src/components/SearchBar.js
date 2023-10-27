@@ -11,7 +11,7 @@ export default function SearchBar(props){
 
     }
     return (
-        <div class="flex items-center justify-center p-5">
+        <div class="flex items-center justify-center p-5 ">
                 <div class="flex">
                 <div class="flex w-auto items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-white p-5">
                     <svg viewBox="0 0 20 20" aria-hidden="true" class="pointer-events-none absolute w-5 fill-gray-500 transition">
