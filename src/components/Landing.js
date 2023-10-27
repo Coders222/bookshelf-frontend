@@ -35,7 +35,7 @@ export default function Landing(){
         }
         return;
     }
-        
+
     )
     return (
         <div class='h-screen bg-[#363139]'>
