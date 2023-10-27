@@ -1,7 +1,7 @@
 export default async function request(api, method, params) {
     let fetchinput = {
       method: method,
-      headers: { 'Content-Type': 'application/json' }
+      // headers: { 'Content-Type': 'application/json' }
       // headers: {      }
     };
     if (method === "post") {
