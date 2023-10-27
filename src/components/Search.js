@@ -10,7 +10,9 @@ export default function Search(props){
     const [searchString, setSearchString] = useState('')
     const [results, setResults] = useState(false)
     const [showResults, setShowResults] = useState(false)
+    const [selection, setSelection] = useState([])
     console.log(results)
+
 
     function displayResults(results){
         if (showResults){
@@ -20,6 +22,9 @@ export default function Search(props){
                 let params = {}
                 params.title = results.docs[i].title
                 params.author = results.docs[i].author_name
+                params.color = "gray-200"
+                params.setSelection = {setSelection}
+                params.id = i;
                 out.push(<SearchResult {...params}/>)
             }
             return out
