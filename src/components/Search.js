@@ -25,6 +25,8 @@ export default function Search(props){
                 params.setSelection = setSelection
                 params.id = i;
                 params.selection = selection
+                params.books = props.books;
+                params.setBooks = props.setBooks
                 out.push(<SearchResult {...params}/>)
             }
             return out
@@ -46,7 +48,7 @@ export default function Search(props){
                     <ExitButton setShowResults = {setShowResults} setResults = {setResults} setString = {setSearchString} setSearching = {props.setSearching}/>
                 </div>
                 <div class = 'z-999 mt-4 w-1/2 bg-[#363139] mx-auto'>
-                    <AddList/>
+                    <AddList results = {results} selection = {selection} books = {props.books} setBooks = {props.setBooks}/>
                 </div>
             </>
 
