@@ -7,7 +7,8 @@ export default function Delete(props){
         return (
             <button
                 class="absolute bottom-3 right-2 md:right-10 2xl:right-14 inline-flex items-center px-4 py-2 bg-red-600 transition ease-in-out delay-75 hover:bg-red-700 text-white text-sm font-medium rounded-md hover:-translate-y-1 hover:scale-110"
-                onClick = {() => props.setBooks([])}
+                onClick = {() => {props.setBooks([])
+                localStorage.setItem('books', [])}}
                 >
                 <svg
                     stroke="currentColor"
