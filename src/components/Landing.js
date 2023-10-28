@@ -38,6 +38,7 @@ export default function Landing(){
                 }
                 
             }).catch((err)=>{
+                localStorage.setItem("authkey", "")
                 try{
                     const unsavedBookshelf = JSON.parse(localStorage.getItem("unsavedbookshelf"))
                     if(unsavedBookshelf != null)
@@ -50,6 +51,7 @@ export default function Landing(){
         
 
         }catch(err){
+            localStorage.setItem("authkey", "")
             console.log(err)
             try{
                 if (localStorage.getItem('unsavedbookshelf') != null){
@@ -63,6 +65,7 @@ export default function Landing(){
                 
             }
         }
+        
     },[])
 
     const bookstack = books.map((book) =>{
