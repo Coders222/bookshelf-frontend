@@ -4,6 +4,7 @@ import Search from './Search'
 import Book from './Book'
 import request from "./fetch";
 import RandomColor from './RandomColor'
+import DeleteButton from './Delete'
 
 export default function Landing(){
     const backendURL = "http://localhost:5000"
@@ -65,7 +66,7 @@ export default function Landing(){
     },[])
 
     const bookstack = books.map((book) =>{
-        return <Book title = {book.title} color = {RandomColor()} />
+        return <Book title = {book.title} author = {book.author} color = {RandomColor()} />
     })
     const saveBookshelf = (newbooks)=>{
         if(authkey && bookshelfId){
@@ -85,11 +86,20 @@ export default function Landing(){
     
 
     
+    // register button from 
+    // https://uiverse.io/tranphattrien/modern-bird-56
     return (
         <div class='h-screen bg-[#363139]'>
             <h1 class='font-extrabold text-4xl text-center text-[#fb9575] cursor-default select-none'>
                 Bookshelf
             </h1>
+            
+            <a href = "/Register">
+                <button class="ml-24 text-3xl w-[200px] font-bold bg-black h-[70px] my-3 flex items-center justify-center rounded-xl cursor-pointer absolute overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#fff]">
+                    Register
+                </button>
+            </a>
+
 
             <Main bookstack = {bookstack}/>
             <Search setBooks = {saveBookshelf} books = {books} searching = {searching} setSearching = {setSearching}/>
@@ -97,6 +107,7 @@ export default function Landing(){
                                     } type="button" class="absolute text-xl border-1 right-2 md:right-24 2xl:right-52 2xl:text-3xl bottom-3 text-[#a6fdfe] bg-[#493e4b] hover:border-[#a6fdfe] border-transparent border-2 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center">
                 Search new book
             </button>
+            <DeleteButton books = {books} setBooks = {setBooks}/>
             
         </div>
         

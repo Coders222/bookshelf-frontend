@@ -70,7 +70,7 @@ function Register() {
   return (
     <div>
       
-      <div className="min-h-[calc(100vh-4rem)] bg-slate-700 content-center justify-center flex">
+      <div className="min-h-[100vh] bg-slate-700 content-center justify-center flex">
         <div class=" bg-[#111827] text-white rounded-3xl p-8 w-4/5 md:w-3/5 lg:w-1/3 xl:w-1/3 xl:p-24 m-auto">
           <h1 class="text-center font-bold text-3xl">Register</h1>
           <div class="md:text-xl font-bold grid px-4 grid-rows-6 md:grid-rows-5 gap-1 mt-4">
