@@ -38,7 +38,7 @@ function Login() {
   }
 
   return (
-    <div className = "bg-slate-700 h-full">
+    <div className = "bg-slate-700 min-h-screen">
       
       <div className="content-center justify-center flex min-h-[calc(100vh-4rem)]">
         <div class= "shadow-2xl bg-[#111827] text-white rounded-3xl p-8 w-3/5 md:w-2/5 lg:w-1/3 lg:p-16  m-auto">
@@ -88,8 +88,8 @@ function Login() {
               </button>
             </div>
             <div class="flex items-start mb-5">
-              <a href="/#/PasswordReset">
-                <p class="text-blue-400 md:text-lg xl:text-xl"> Forgot password? </p>
+              <a href="/">
+                <p class="text-blue-400 md:text-lg xl:text-xl"> Or continue as guest </p>
               </a>
             </div>
             <div class="mt-10">
