@@ -51,7 +51,7 @@ export default function Search(props){
                     <ExitButton setSelection = {setSelection} setShowResults = {setShowResults} setResults = {setResults} setString = {setSearchString} setSearching = {props.setSearching}/>
                 </div>
                 <div class = 'z-999 mt-4 w-1/2 bg-[#363139] mx-auto'>
-                    <AddList setSelection= {setSelection} results = {results} selection = {selection} books = {props.books} setBooks = {props.setBooks}/>
+                    <AddList setSearching = {props.setSearching} setSelection= {setSelection} results = {results} selection = {selection} books = {props.books} setBooks = {props.setBooks}/>
                 </div>
             </>
 
