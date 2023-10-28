@@ -17,6 +17,9 @@ export default function Search(props){
     function displayResults(results){
         if (showResults){
             
+            if (results.docs.length == 0){
+                return <h1 class = 'text-center text-white text-xl'> No results found</h1>
+            }
             let out = []
             for (let i = 0; i < 5; i++){
                 let params = {}
@@ -45,10 +48,10 @@ export default function Search(props){
                     </div>
                 </div>
                 <div class = 'z-999 relative mx-auto mt-3 flex items-center justify-center'>
-                    <ExitButton setShowResults = {setShowResults} setResults = {setResults} setString = {setSearchString} setSearching = {props.setSearching}/>
+                    <ExitButton setSelection = {setSelection} setShowResults = {setShowResults} setResults = {setResults} setString = {setSearchString} setSearching = {props.setSearching}/>
                 </div>
                 <div class = 'z-999 mt-4 w-1/2 bg-[#363139] mx-auto'>
-                    <AddList results = {results} selection = {selection} books = {props.books} setBooks = {props.setBooks}/>
+                    <AddList setSelection= {setSelection} results = {results} selection = {selection} books = {props.books} setBooks = {props.setBooks}/>
                 </div>
             </>
 

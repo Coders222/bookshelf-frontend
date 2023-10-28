@@ -14,57 +14,58 @@ export default function Landing(){
     console.log(books)
 
     let authkey = undefined
-    // useEffect(()=>{
+    useEffect(()=>{
         
-    //     try{
-    //         authkey = JSON.parse(localStorage.getItem("authkey"))
+        try{
+            authkey = JSON.parse(localStorage.getItem("authkey"))
             
-    //         console.log(authkey)
-    //         request(`${backendURL}/user/getbookshelves`, "post",{authkey: authkey.key, search:""}).then((bookshelves)=>{
-    //             console.log(bookshelves)
-    //             if(bookshelves.length != 0){
-    //                 request(`${backendURL}/bookshelf/getbookshelf`, "post",{authkey: authkey.key,bookshelfid: bookshelves[0],search:""}).then((bookshelf)=>{
-    //                     console.log(bookshelf)
-    //                     setBooks(bookshelf.books)
-    //                     setBookshelfId(bookshelf.id)
-    //                 })
-    //             }else{
-    //                 request(`${backendURL}/bookshelf/newbookshelf`, "post",{authkey: authkey.key,bookshelf:[],private:true,search:""}).then((bookshelf)=>{
-    //                     console.log(bookshelf)
-    //                     setBooks(bookshelf.books)
-    //                     setBookshelfId(bookshelf.id)
-    //                 })
-    //             }
+            console.log(authkey)
+            request(`${backendURL}/user/getbookshelves`, "post",{authkey: authkey.key, search:""}).then((bookshelves)=>{
+                console.log(bookshelves)
+                if(bookshelves.length != 0){
+                    request(`${backendURL}/bookshelf/getbookshelf`, "post",{authkey: authkey.key,bookshelfid: bookshelves[0],search:""}).then((bookshelf)=>{
+                        console.log(bookshelf)
+                        setBooks(bookshelf.books)
+                        setBookshelfId(bookshelf.id)
+                    })
+                }else{
+                    request(`${backendURL}/bookshelf/newbookshelf`, "post",{authkey: authkey.key,bookshelf:[],private:true,search:""}).then((bookshelf)=>{
+                        console.log(bookshelf)
+                        setBooks(bookshelf.books)
+                        setBookshelfId(bookshelf.id)
+                    })
+                }
                 
-    //         }).catch((err)=>{
-    //             try{
-    //                 const unsavedBookshelf = JSON.parse(localStorage.getItem("unsavedbookshelf"))
-    //                 if(unsavedBookshelf != null)
-    //                 setBooks(unsavedBookshelf)
-    //             }catch(err){
-    //                 console.log(err)
+            }).catch((err)=>{
+                try{
+                    const unsavedBookshelf = JSON.parse(localStorage.getItem("unsavedbookshelf"))
+                    if(unsavedBookshelf != null)
+                        setBooks(unsavedBookshelf)
+                }catch(err){
+                    console.log(err)
                     
-    //             }
-    //         })
+                }
+            })
         
 
-    //     }catch(err){
-    //         console.log(err)
-    //         try{
-    //             const unsavedBookshelf = JSON.parse(localStorage.getItem("unsavedbookshelf"))
-    //             setBooks(unsavedBookshelf)
-    //         }catch(err){
-    //             console.log(err)
+        }catch(err){
+            console.log(err)
+            try{
+                if (localStorage.getItem('unsavedbookshelf') != null){
+                    const unsavedBookshelf = JSON.parse(localStorage.getItem("unsavedbookshelf"))
+                    setBooks(unsavedBookshelf)
+                }
+                else setBooks([])
                 
-    //         }
-    //     }
-    // },[])
+            }catch(err){
+                console.log(err)
+                
+            }
+        }
+    },[])
 
     const bookstack = books.map((book) =>{
-        
         return <Book title = {book.title} color = {RandomColor()} />
-        
-        
     })
     const saveBookshelf = ()=>{
         if(authkey && bookshelfId){
