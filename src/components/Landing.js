@@ -67,16 +67,23 @@ export default function Landing(){
     const bookstack = books.map((book) =>{
         return <Book title = {book.title} color = {RandomColor()} />
     })
-    const saveBookshelf = ()=>{
+    const saveBookshelf = (newbooks)=>{
         if(authkey && bookshelfId){
-            request(`${backendURL}/bookshelf/changebooks`, "post",{authkey: authkey.key,bookshelfid: bookshelfId,books:books,search:""}).then((bookshelf)=>{
+            request(`${backendURL}/bookshelf/changebooks`, "post",{authkey: authkey.key,bookshelfid: bookshelfId,books:newbooks,search:""}).then((bookshelf)=>{
                 console.log(bookshelf)
                 setBooks(bookshelf.books)
+            }).catch((err)=>{
+                console.log(err)
+                //alert("unable to save to server.")
+                localStorage.setItem("unsavedbookshelf", JSON.stringify(newbooks));
             })
         }else{
-            localStorage.setItem("unsavedbookshelf", JSON.stringify(books));
+            localStorage.setItem("unsavedbookshelf", JSON.stringify(newbooks));
+            setBooks(newbooks)
         }
     }
+    
+
     
     // button from 
     // https://uiverse.io/tranphattrien/modern-bird-56
@@ -94,7 +101,7 @@ export default function Landing(){
 
 
             <Main bookstack = {bookstack}/>
-            <Search setBooks = {setBooks} books = {books} searching = {searching} setSearching = {setSearching}/>
+            <Search setBooks = {saveBookshelf} books = {books} searching = {searching} setSearching = {setSearching}/>
             <button onClick = {() =>setSearching(true)
                                     } type="button" class="absolute text-xl border-1 right-2 md:right-24 2xl:right-52 2xl:text-3xl bottom-3 text-[#a6fdfe] bg-[#493e4b] hover:border-[#a6fdfe] border-transparent border-2 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center">
                 Search new book
