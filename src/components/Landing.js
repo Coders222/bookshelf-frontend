@@ -21,16 +21,16 @@ export default function Landing(){
             authkey = JSON.parse(localStorage.getItem("authkey"))
             
             console.log(authkey)
-            request(`${backendURL}/user/getbookshelves`, "post",{authkey: authkey.key, search:""}).then((bookshelves)=>{
+            request(`${backendURL}/user/getbookshelves`, "post",{authkey: authkey.key, search:""},true).then((bookshelves)=>{
                 console.log(bookshelves)
                 if(bookshelves.length != 0){
-                    request(`${backendURL}/bookshelf/getbookshelf`, "post",{authkey: authkey.key,bookshelfid: bookshelves[0],search:""}).then((bookshelf)=>{
+                    request(`${backendURL}/bookshelf/getbookshelf`, "post",{authkey: authkey.key,bookshelfid: bookshelves[0],search:""},true).then((bookshelf)=>{
                         console.log(bookshelf)
                         setBooks(bookshelf.books)
                         setBookshelfId(bookshelf.id)
                     })
                 }else{
-                    request(`${backendURL}/bookshelf/newbookshelf`, "post",{authkey: authkey.key,bookshelf:[],private:true,search:""}).then((bookshelf)=>{
+                    request(`${backendURL}/bookshelf/newbookshelf`, "post",{authkey: authkey.key,bookshelf:[],private:true,search:""},true).then((bookshelf)=>{
                         console.log(bookshelf)
                         setBooks(bookshelf.books)
                         setBookshelfId(bookshelf.id)
@@ -70,7 +70,7 @@ export default function Landing(){
     })
     const saveBookshelf = (newbooks)=>{
         if(authkey && bookshelfId){
-            request(`${backendURL}/bookshelf/changebooks`, "post",{authkey: authkey.key,bookshelfid: bookshelfId,books:newbooks,search:""}).then((bookshelf)=>{
+            request(`${backendURL}/bookshelf/changebooks`, "post",{authkey: authkey.key,bookshelfid: bookshelfId,books:newbooks,search:""},true).then((bookshelf)=>{
                 console.log(bookshelf)
                 setBooks(bookshelf.books)
             }).catch((err)=>{

@@ -15,6 +15,7 @@ export default function Bookshelf(props){
     const [books, setBooks] = useState([])
     console.log(books)
     let {id} = useParams();
+    console.log(`${id} id`)
     let authkey = undefined
     useEffect(()=>{
         
@@ -24,7 +25,7 @@ export default function Bookshelf(props){
         }catch(err){
             
         }
-        request(`${backendURL}/bookshelf/getbookshelfpublic`, "post",{bookshelfid: id,search:""}).then((bookshelf)=>{
+        request(`${backendURL}/bookshelf/getbookshelfpublic`, "post",{bookshelfid: id,search:""},true).then((bookshelf)=>{
             console.log(bookshelf)
             setBooks(bookshelf.books)
             setBookshelfId(bookshelf.id)
