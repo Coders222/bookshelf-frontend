@@ -40,7 +40,7 @@ export default function Landing(){
                 try{
                     const unsavedBookshelf = JSON.parse(localStorage.getItem("unsavedbookshelf"))
                     if(unsavedBookshelf != null)
-                    setBooks(unsavedBookshelf)
+                        setBooks(unsavedBookshelf)
                 }catch(err){
                     console.log(err)
                     
@@ -51,8 +51,12 @@ export default function Landing(){
         }catch(err){
             console.log(err)
             try{
-                const unsavedBookshelf = JSON.parse(localStorage.getItem("unsavedbookshelf"))
-                setBooks(unsavedBookshelf)
+                if (localStorage.getItem('unsavedbookshelf') != null){
+                    const unsavedBookshelf = JSON.parse(localStorage.getItem("unsavedbookshelf"))
+                    setBooks(unsavedBookshelf)
+                }
+                else setBooks([])
+                
             }catch(err){
                 console.log(err)
                 
@@ -61,10 +65,7 @@ export default function Landing(){
     },[])
 
     const bookstack = books.map((book) =>{
-        
         return <Book title = {book.title} color = {RandomColor()} />
-        
-        
     })
     const saveBookshelf = (newbooks)=>{
         if(authkey && bookshelfId){
