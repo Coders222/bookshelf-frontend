@@ -9,7 +9,7 @@ export default async function request(api, method, params) {
       ///params.authkey = sessionStorage.getItem("authkey");
       fetchinput.body = JSON.stringify(params);
     }
-
+    
     const data = await fetch(`${api}` + params.search, fetchinput)
       .then((res) => {
         if (res){
