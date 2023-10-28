@@ -21,7 +21,7 @@ export default function Search(props){
                 return <h1 class = 'text-center text-white text-xl'> No results found</h1>
             }
             let out = []
-            for (let i = 0; i < 5; i++){
+            for (let i = 0; i < Math.min(results.docs.length, 5); i++){
                 let params = {}
                 params.title = results.docs[i].title
                 params.author = results.docs[i].author_name
