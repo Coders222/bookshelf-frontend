@@ -22,9 +22,11 @@ export default function Search(props){
             }
             let out = []
             for (let i = 0; i < Math.min(results.docs.length, 5); i++){
+
+                let author = (results.docs[i].author_name+ '').split(' ')
                 let params = {}
                 params.title = results.docs[i].title
-                params.author = results.docs[i].author_name
+                params.author = author[author.length - 1]
                 params.setSelection = setSelection
                 params.id = i;
                 params.selection = selection

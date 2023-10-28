@@ -4,6 +4,7 @@ import Search from './Search'
 import Book from './Book'
 import request from "./fetch";
 import RandomColor from './RandomColor'
+import DeleteButton from './Delete'
 
 export default function Landing(){
     const backendURL = "http://localhost:5000"
@@ -65,7 +66,7 @@ export default function Landing(){
     },[])
 
     const bookstack = books.map((book) =>{
-        return <Book title = {book.title} color = {RandomColor()} />
+        return <Book title = {book.title} author = {book.author} color = {RandomColor()} />
     })
     const saveBookshelf = (newbooks)=>{
         if(authkey && bookshelfId){
@@ -85,7 +86,7 @@ export default function Landing(){
     
 
     
-    // button from 
+    // register button from 
     // https://uiverse.io/tranphattrien/modern-bird-56
     return (
         <div class='h-screen bg-[#363139]'>
@@ -106,6 +107,7 @@ export default function Landing(){
                                     } type="button" class="absolute text-xl border-1 right-2 md:right-24 2xl:right-52 2xl:text-3xl bottom-3 text-[#a6fdfe] bg-[#493e4b] hover:border-[#a6fdfe] border-transparent border-2 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center">
                 Search new book
             </button>
+            <DeleteButton books = {books} setBooks = {setBooks}/>
             
         </div>
         
