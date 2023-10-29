@@ -3,7 +3,7 @@ import Table from "../images/table.png"
 export default function Stack(){
     return (
         <div class = 'flex justify-center '>
-            <div class = 'w-1/3 '>
+            <div class = 'w-1/3 select-none'>
                 <img src = {Table} alt = "table"/>
             </div>
             
