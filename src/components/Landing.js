@@ -1,4 +1,4 @@
-import {React, useEffect, useState} from "react";
+import {React, useEffect, useState, useMemo } from "react";
 import Main from "./Main"
 import Search from './Search'
 import Book from './Book'
@@ -12,9 +12,9 @@ export default function Landing(){
     const [searching, setSearching] = useState(false)
     const [bookshelfId, setBookshelfId] = useState()
     const [books, setBooks] = useState([])
-    console.log(books)
 
-    let authkey = undefined
+    localStorage.setItem("authkey", "");
+    let authkey = null;
     useEffect(()=>{
         
         try{
