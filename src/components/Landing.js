@@ -104,7 +104,7 @@ export default function Landing(){
                                     } type="button" class="select-none absolute text-xl border-1 right-2 md:right-24 2xl:right-52 2xl:text-3xl bottom-3 text-[#32b6e8] bg-[#111942] hover:border-[#32b6e8] border-transparent border-2 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center">
                 Search new book
             </button>
-            <DeleteButton books = {books} setBooks = {setBooks}/>
+            <DeleteButton books = {books} setBooks = {setBooks} searching = {searching}/>
             
         </div>
         

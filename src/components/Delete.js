@@ -3,7 +3,7 @@ import React from 'react'
 // https://uiverse.io/seyed-mohsen-mousavi/warm-dingo-23
 export default function Delete(props){
     
-    if (props.books.length > 0){
+    if (props.books.length > 0 && !props.searching){
         return (
             <button
                 class="absolute bottom-3 left-2 md:left-10 2xl:left-14 inline-flex items-center px-4 py-2 bg-red-600 transition ease-in-out delay-75 hover:bg-red-700 text-white text-sm font-medium rounded-md hover:-translate-y-1 hover:scale-110"
@@ -25,7 +25,7 @@ export default function Delete(props){
                     ></path>
                 </svg>
 
-                Delete
+                Clear 
             </button>
 
         )
