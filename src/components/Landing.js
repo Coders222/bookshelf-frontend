@@ -38,6 +38,7 @@ export default function Landing(){
                 }
                 
             }).catch((err)=>{
+                localStorage.setItem("authkey", "")
                 try{
                     const unsavedBookshelf = JSON.parse(localStorage.getItem("unsavedbookshelf"))
                     if(unsavedBookshelf != null)
@@ -50,6 +51,7 @@ export default function Landing(){
         
 
         }catch(err){
+            localStorage.setItem("authkey", "")
             console.log(err)
             try{
                 if (localStorage.getItem('unsavedbookshelf') != null){
@@ -63,6 +65,7 @@ export default function Landing(){
                 
             }
         }
+        
     },[])
 
     const bookstack = books.map((book) =>{
@@ -89,8 +92,8 @@ export default function Landing(){
     // register button from 
     // https://uiverse.io/tranphattrien/modern-bird-56
     return (
-        <div class='h-screen bg-[#363139]'>
-            <h1 class='font-extrabold text-4xl text-center text-[#fb9575] cursor-default select-none'>
+        <div class='h-screen bg-[#022b54]'>
+            <h1 class='font-extrabold text-4xl text-center text-[#f2ffff] cursor-default select-none'>
                 Bookshelf
             </h1>
             
@@ -98,7 +101,7 @@ export default function Landing(){
             <Main bookstack = {bookstack}/>
             <Search setBooks = {saveBookshelf} books = {books} searching = {searching} setSearching = {setSearching}/>
             <button onClick = {() =>setSearching(true)
-                                    } type="button" class="absolute text-xl border-1 right-2 md:right-24 2xl:right-52 2xl:text-3xl bottom-3 text-[#a6fdfe] bg-[#493e4b] hover:border-[#a6fdfe] border-transparent border-2 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center">
+                                    } type="button" class="select-none absolute text-xl border-1 right-2 md:right-24 2xl:right-52 2xl:text-3xl bottom-3 text-[#32b6e8] bg-[#111942] hover:border-[#32b6e8] border-transparent border-2 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center">
                 Search new book
             </button>
             <DeleteButton books = {books} setBooks = {setBooks}/>

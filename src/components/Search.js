@@ -41,7 +41,7 @@ export default function Search(props){
     if (props.searching){
         return (
             <>
-                <div class = 'z-999 relative mt-4 w-1/2 bg-[#363139] mx-auto rounded-md border border-1 border-[#fb9575] border-2'>
+                <div class = 'z-999 relative mt-4 w-1/2 bg-[#111942] mx-auto rounded-t-lg border border-1 border-[#32b6e8] border-2'>
                     <SearchBar setShowResults = {setShowResults} setResults = {setResults} string = {searchString} setString = {setSearchString}/>
                     
                     <div class = 'z-999 relative'>
